@@ -15,8 +15,9 @@ const Product = () => {
           <p>⭐</p>
           <p>⭐</p>
         </div>
-        <img src="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg" />
       </div>
+      <img src="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg" />
+      <button>Add to Basket</button>
     </div>
   );
 };
