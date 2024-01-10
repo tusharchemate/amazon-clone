@@ -12,7 +12,12 @@ const Home = () => {
           alt="image"
         />
         <div className="home__row">
-          <Product />
+          <Product
+            title={'The lean startup'}
+            image={`https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg`}
+            price={19.99}
+            rating={5}
+          />
           <Product />
         </div>
 
