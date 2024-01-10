@@ -33,4 +33,10 @@
   margin-top: 10px;
   color: #111;
   border-color: #d5b460;
+  cursor: pointer;
+}
+.product__rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
