@@ -17,6 +17,12 @@
   font-size: 14px;
   font-weight: normal;
 }
+.subtotal__price {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: normal;
+}
 .subtotal__gift > input {
   margin-right: 5px;
 }
