@@ -33,11 +33,12 @@ const Header = () => {
           <span className="header__optionOne">Your </span>
           <span className="header__optionTwo">Prime</span>
         </div>
-
+        <Link to={'/checkout'}>
         <div className="header__optionBasket">
           <ShoppingBasket />
           <span className="header__basketCount">0</span>
         </div>
+        </Link>
       </div>
     </div>
   );
