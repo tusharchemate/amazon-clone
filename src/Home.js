@@ -19,8 +19,8 @@ const Home = () => {
             rating={5}
           />
           <Product
-            title={'The lean startup'}
-            image={`https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg`}
+            title={`Merrell Men's Moab 3 Hiking Shoe`}
+            image={`https://m.media-amazon.com/images/I/81rSi12yULL._AC_SX695_.jpg`}
             price={19.99}
             rating={3}
           />
@@ -28,20 +28,26 @@ const Home = () => {
 
         <div className="home__row">
           <Product
-            title={'The lean startup'}
-            image={`https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg`}
+            title={
+              'Cute Kanye Plush Bear Toy 10 inch Soft Stuffed Animal Perfect Graduation Gifts for Kids Fans Boys and Girls'
+            }
+            image={`https://m.media-amazon.com/images/I/61L9BiTpOFL._AC_UL640_FMwebp_QL65_.jpg`}
             price={19.99}
             rating={2}
           />
           <Product
-            title={'The lean startup'}
-            image={`https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg`}
+            title={
+              'Bluetooth Speaker with HD Sound, Portable Wireless, IPX5 Waterproof, Up to 24H Playtime, TWS Pairing...'
+            }
+            image={`https://m.media-amazon.com/images/I/81djh1gfUwL._AC_SY879_.jpg`}
             price={19.99}
             rating={4}
           />
           <Product
-            title={'The lean startup'}
-            image={`https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg`}
+            title={
+              'Leo The Truck 7" Toy, Construction Truck Toys (Non-Transforming Vehicles), Kids for Ages 3 and up, Holiday'
+            }
+            image={`https://m.media-amazon.com/images/I/71JAWmXpvuL._AC_SX679_.jpg`}
             price={19.99}
             rating={1}
           />
@@ -49,8 +55,8 @@ const Home = () => {
 
         <div className="home__row">
           <Product
-            title={'The lean startup'}
-            image={`https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg`}
+            title={'House of Flame and Shadow (Crescent City, 3)'}
+            image={`https://m.media-amazon.com/images/I/91jbHTNpy6L._SL1500_.jpg`}
             price={19.99}
             rating={5}
           />
