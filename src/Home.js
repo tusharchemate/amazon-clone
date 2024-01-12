@@ -13,12 +13,14 @@ const Home = () => {
         />
         <div className="home__row">
           <Product
+            id={1}
             title={'The lean startup'}
             image={`https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg`}
             price={19.99}
             rating={5}
           />
           <Product
+            id={2}
             title={`Merrell Men's Moab 3 Hiking Shoe`}
             image={`https://m.media-amazon.com/images/I/81rSi12yULL._AC_SX695_.jpg`}
             price={19.99}
@@ -28,6 +30,7 @@ const Home = () => {
 
         <div className="home__row">
           <Product
+            id={3}
             title={
               'Cute Kanye Plush Bear Toy 10 inch Soft Stuffed Animal Perfect Graduation Gifts for Kids Fans Boys and Girls'
             }
@@ -36,6 +39,7 @@ const Home = () => {
             rating={2}
           />
           <Product
+            id={4}
             title={
               'Bluetooth Speaker with HD Sound, Portable Wireless, IPX5 Waterproof, Up to 24H Playtime, TWS Pairing...'
             }
@@ -44,6 +48,7 @@ const Home = () => {
             rating={4}
           />
           <Product
+            id={5}
             title={
               'Leo The Truck 7" Toy, Construction Truck Toys (Non-Transforming Vehicles), Kids for Ages 3 and up, Holiday'
             }
@@ -55,6 +60,7 @@ const Home = () => {
 
         <div className="home__row">
           <Product
+            id={6}
             title={'House of Flame and Shadow (Crescent City, 3)'}
             image={`https://m.media-amazon.com/images/I/91jbHTNpy6L._SL1500_.jpg`}
             price={19.99}
