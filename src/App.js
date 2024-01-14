@@ -3,14 +3,31 @@ import Checkout from './Checkout';
 import Header from './Header';
 import Home from './Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header />
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/login" element={<Checkout />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Header />
+                <Home />
+              </>
+            }
+          />
+          <Route
+            path="/checkout"
+            element={
+              <>
+                <Header />
+                <Checkout />
+              </>
+            }
+          />
         </Routes>
       </div>
     </BrowserRouter>
