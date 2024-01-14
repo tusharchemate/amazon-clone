@@ -6,6 +6,14 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const signIn = (e) => {
+    e.preventDefault();
+  };
+
+  const register = (e) => {
+    e.preventDefault();
+  };
+  
   return (
     <div className="login">
       <Link to={'/'}>
@@ -31,13 +39,17 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="login__SignIn">Sign In</button>
+          <button type="submit" onClick={signIn} className="login__SignIn">
+            Sign In
+          </button>
         </form>
         <p>
           By Signin you agree to amazon condition & Sale. Please see our privacy
           notice.
         </p>
-        <button className="login__register">Create your Amazon Account</button>
+        <button onClick={register} className="login__register">
+          Create your Amazon Account
+        </button>
       </div>
     </div>
   );
