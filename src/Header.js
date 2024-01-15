@@ -3,9 +3,14 @@ import './Header.css';
 import { Search, ShoppingBasket } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { useStateValue } from './StateProvider';
+import { useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [{ basket }, dispatch] = useStateValue();
+  const location = useLocation();
+  const signedInUser = location.state;
+
+  console.log('==singed userr ohh', signedInUser);
 
   return (
     <div className="header">

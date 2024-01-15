@@ -14,9 +14,15 @@ const Login = () => {
   const signIn = (e) => {
     e.preventDefault();
     signInWithEmailAndPasswordHandler(email, password)
-      .then((signedUser) => {
-        if (signedUser) {
-          navigate('/');
+      .then((signedInUser) => {
+        if (signedInUser) {
+          navigate('/', {
+            state: {
+              userId: signedInUser.uid,
+              displayName: signedInUser.displayName,
+              email: signedInUser.email,
+            },
+          });
         }
       })
       .catch((err) => console.log('--err--', err.message));
