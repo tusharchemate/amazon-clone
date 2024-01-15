@@ -2,7 +2,11 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import { getDatabase } from 'firebase/database';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -45,4 +49,28 @@ const createUserWithEmailAndPasswordHandler = (email, password) => {
   });
 };
 
-export { db, auth, createUserWithEmailAndPasswordHandler };
+const signInWithEmailAndPasswordHandler = (email, password) => {
+  return new Promise((resolve, reject) => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log('User signed in:', user);
+        // Additional logic after signing in
+        resolve(user); // Resolve the promise with the user object
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error('Error signing in:', errorCode, errorMessage);
+        reject(error); // Reject the promise with the error
+      });
+  });
+};
+
+export {
+  db,
+  auth,
+  createUserWithEmailAndPasswordHandler,
+  signInWithEmailAndPasswordHandler,
+};

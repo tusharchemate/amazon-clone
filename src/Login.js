@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPasswordHandler } from './firebase';
+import {
+  createUserWithEmailAndPasswordHandler,
+  signInWithEmailAndPasswordHandler,
+} from './firebase';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -10,6 +13,13 @@ const Login = () => {
 
   const signIn = (e) => {
     e.preventDefault();
+    signInWithEmailAndPasswordHandler(email, password)
+      .then((signedUser) => {
+        if (signedUser) {
+          navigate('/');
+        }
+      })
+      .catch((err) => console.log('--err--', err.message));
   };
 
   const register = (e) => {
