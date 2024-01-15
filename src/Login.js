@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './Login.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPasswordHandler } from './firebase';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -13,7 +14,13 @@ const Login = () => {
 
   const register = (e) => {
     e.preventDefault();
-    createUserWithEmailAndPasswordHandler(email, password);
+    createUserWithEmailAndPasswordHandler(email, password)
+      .then((createdUser) => {
+        if (createdUser.auth) {
+          navigate('/');
+        }
+      })
+      .catch((err) => console.log('--err--', err.message));
   };
 
   return (

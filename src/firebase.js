@@ -28,19 +28,21 @@ const db = getDatabase(firebaseApp);
 const auth = getAuth();
 // Function to create a user with email and password
 const createUserWithEmailAndPasswordHandler = (email, password) => {
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed up
-      const user = userCredential.user;
-      console.log('User created:', user);
-      // Additional logic if needed
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.error('Error creating user:', errorCode, errorMessage);
-      // Additional error handling if needed
-    });
+  return new Promise((resolve, reject) => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed up
+        const user = userCredential.user;
+        console.log('User created:', user);
+        resolve(user); // Resolve the promise with the user object
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error('Error creating user:', errorCode, errorMessage);
+        reject(error); // Reject the promise with the error
+      });
+  });
 };
 
 export { db, auth, createUserWithEmailAndPasswordHandler };
