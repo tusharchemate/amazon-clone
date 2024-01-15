@@ -6,11 +6,13 @@ import { useStateValue } from './StateProvider';
 import { useLocation } from 'react-router-dom';
 
 const Header = () => {
+  const extractName = (email) => {
+    const name = email.split('@');
+    return name[0];
+  };
   const [{ basket }, dispatch] = useStateValue();
   const location = useLocation();
-  const signedInUser = location.state;
-
-  console.log('==singed userr ohh', signedInUser);
+  const signedInUserEmail = location.state?.email;
 
   return (
     <div className="header">
@@ -29,8 +31,12 @@ const Header = () => {
       <div className="header__nav">
         <Link to={'/login'}>
           <div className="header__option">
-            <span className="header__optionOne">Hello Tushar</span>
-            <span className="header__optionTwo">Sign In</span>
+            <span className="header__optionOne">
+              Hello {extractName(signedInUserEmail)}
+            </span>
+            <span className="header__optionTwo">
+              {signedInUserEmail ? 'Logout' : 'Sign In'}
+            </span>
           </div>
         </Link>
 
