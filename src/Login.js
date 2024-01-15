@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { Link } from 'react-router-dom';
+import { createUserWithEmailAndPasswordHandler } from './firebase';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -12,8 +13,9 @@ const Login = () => {
 
   const register = (e) => {
     e.preventDefault();
+    createUserWithEmailAndPasswordHandler(email, password);
   };
-  
+
   return (
     <div className="login">
       <Link to={'/'}>
