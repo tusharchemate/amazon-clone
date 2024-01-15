@@ -10,6 +10,7 @@ const Header = () => {
     const name = email.split('@');
     return name[0];
   };
+
   const [{ basket }, dispatch] = useStateValue();
   const location = useLocation();
   const signedInUserEmail = location.state?.email;
@@ -32,7 +33,7 @@ const Header = () => {
         <Link to={'/login'}>
           <div className="header__option">
             <span className="header__optionOne">
-              Hello {extractName(signedInUserEmail)}
+              Hello {signedInUserEmail && extractName(signedInUserEmail)}
             </span>
             <span className="header__optionTwo">
               {signedInUserEmail ? 'Logout' : 'Sign In'}
