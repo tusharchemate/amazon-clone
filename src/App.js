@@ -5,6 +5,13 @@ import Home from './Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './Login';
 import Payment from './Payment';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+
+// completly fine as this is public key
+const promise = loadStripe(
+  'pk_test_51OZGIdSG3yi8p7yuOUpz81UgnFFiyduWJBf1lIewPMzjpzUJyjSjzMm9TQVkj7XV6i7gaFR5sZpI28NZBSEOsDI100RLlJjfxy'
+);
 
 function App() {
   return (
@@ -35,7 +42,9 @@ function App() {
             element={
               <>
                 <Header />
-                <Payment />
+                <Elements stripe={promise}>
+                  <Payment />
+                </Elements>
               </>
             }
           />
