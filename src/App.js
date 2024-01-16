@@ -4,6 +4,7 @@ import Header from './Header';
 import Home from './Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './Login';
+import Payment from './Payment';
 
 function App() {
   return (
