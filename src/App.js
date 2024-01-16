@@ -29,6 +29,15 @@ function App() {
               </>
             }
           />
+          <Route
+            path="/payment"
+            element={
+              <>
+                <Header />
+                <Payment />
+              </>
+            }
+          />
         </Routes>
       </div>
     </BrowserRouter>
@@ -36,4 +45,3 @@ function App() {
 }
 
 export default App;
-
