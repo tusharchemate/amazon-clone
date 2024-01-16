@@ -1,9 +1,11 @@
 import React from 'react';
 import './Subtotal.css';
 import { useStateValue } from './StateProvider';
+import { useNavigate } from 'react-router-dom';
 
 const Subtotal = () => {
   const [{ basket }, dispatch] = useStateValue();
+  const navigate = useNavigate();
 
   let totalPrice = basket.reduce((total, item) => total + item.price, 0);
   return (
@@ -15,7 +17,7 @@ const Subtotal = () => {
         <input type="checkbox" />
         This offer contains a gift
       </small>
-      <button>Proceed to Checkout</button>
+      <button onClick={(e) => navigate('/payment')}>Proceed to Checkout</button>
     </div>
   );
 };
