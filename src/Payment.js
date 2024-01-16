@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import './Payment.css';
 import { useStateValue } from './StateProvider';
 import CheckoutProduct from './CheckoutProduct';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios';
 
 const Payment = () => {
   const [{ basket }, dispatch] = useStateValue();
   let totalPrice = basket.reduce((total, item) => total + item.price, 0);
+  const navigate = useNavigate();
 
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
@@ -44,6 +45,7 @@ const Payment = () => {
         setSucceeded(true);
         setError(null);
         setProcessing(false);
+        navigate('/orders');
       });
   };
 
