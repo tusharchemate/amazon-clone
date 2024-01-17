@@ -1,4 +1,13 @@
+const { onRequest } = require('firebase-functions/v2/https');
+const logger = require('firebase-functions/logger');
+const express = require('express');
+const cors = require('cors');
 
-const {onRequest} = require("firebase-functions/v2/https");
-const logger = require("firebase-functions/logger");
-const express  = require('express');
+const stripe = require('stripe')(
+  'sk_test_51OZGIdSG3yi8p7yufrOp3PuGBT7AHPYrJBgJkbp2RBJJqaio0iTXTHXrzSrqMiIkKawWPAPbORtwBteQbzbQ9pXq00DCkvz6zB'
+);
+
+const app = express();
+
+app.use(cors({ origin: true }));
+app.use(express.json());
