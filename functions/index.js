@@ -21,4 +21,50 @@ exports.api = onRequest((request, response) => {
   response.send('Hello, World!');
 });
 
+// app.post('/payments/create', async (request, response) => {
+//   console.log('==called 1');
+//   const total = request.query.total;
+//   console.log('Payment Request Received Boom ', total);
+
+//   try {
+//     const paymentIntent = await stripe.paymentIntents.create({
+//       amount: total,
+//       currency: 'usd',
+//     });
+//     response.status(201).send({
+//       clientSecret: paymentIntent.client_secret,
+//     });
+//   } catch (error) {
+//     console.error('Error creating payment intent:', error);
+//     response.status(500).json({ error: 'Failed to create payment intent' });
+//   }
+// });
+
+exports.api = onRequest(async (request, response) => {
+  if (request.path === '/payments/create' && request.method === 'POST') {
+    const total = request.query.total;
+    console.log('Payment Request Received Boom ', total);
+
+    try {
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: total,
+        currency: 'usd',
+      });
+      response.status(201).send({
+        clientSecret: paymentIntent.client_secret,
+      });
+    } catch (error) {
+      console.error('Error creating payment intent:', error);
+      response.status(500).json({ error: 'Failed to create payment intent' });
+    }
+  } else {
+    response.status(404).send('Not Found');
+  }
+});
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
 //http://127.0.0.1:5001/clone-9d11f/us-central1/api

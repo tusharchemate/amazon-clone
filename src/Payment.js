@@ -22,15 +22,23 @@ const Payment = () => {
 
   useEffect(() => {
     const getClientSecrets = async () => {
-      const response = await axios({
-        method: 'post',
-        url: `/payments/create?total=${totalPrice * 100} `,
-      });
-      setClientSecrets(response.data.clientSecret);
+      try {
+        const response = await axios.post(
+          `/payments/create?total=${totalPrice * 100}`
+        );
+        setClientSecrets(response.data.clientSecret);
+      } catch (error) {
+        console.error('Error fetching client secrets:', error);
+        // Handle the error, you can set an error state or log it
+      }
     };
 
-    getClientSecrets();
-  }, [basket]);
+    if (basket.length) {
+      getClientSecrets();
+    }
+  }, [basket, totalPrice]);
+
+  console.log('==clientSecrets', clientSecrets);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
